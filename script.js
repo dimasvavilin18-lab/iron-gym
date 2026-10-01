@@ -14,9 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             menuButton.classList.toggle("menu-button--active");
         });
 
-        const navLinks = nav.querySelectorAll("a");
-
-        navLinks.forEach(function (link) {
+        nav.querySelectorAll("a").forEach(function (link) {
             link.addEventListener("click", function () {
                 nav.classList.remove("nav--open");
                 menuButton.classList.remove("menu-button--active");
@@ -43,7 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 event.preventDefault();
 
                 target.scrollIntoView({
-                    behavior: "smooth"
+                    behavior: "smooth",
+                    block: "start"
                 });
             }
         });
@@ -58,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const header = document.querySelector(".header");
 
     if (header) {
+
         window.addEventListener("scroll", function () {
 
             if (window.scrollY > 50) {
@@ -67,11 +67,51 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
         });
+
     }
 
 
     // =========================
-    // ФОРМА
+    // АНИМАЦИЯ ПОЯВЛЕНИЯ
+    // =========================
+
+    const animatedElements = document.querySelectorAll(
+        ".section__label, .section h2, .about__text, .program-card, .trainer-card, .price-card, .review-card, .contact-card, .contacts__bottom, .booking__inner"
+    );
+
+    animatedElements.forEach(function (element) {
+        element.classList.add("scroll-hidden");
+    });
+
+
+    const observer = new IntersectionObserver(
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("scroll-show");
+
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+
+    animatedElements.forEach(function (element) {
+        observer.observe(element);
+    });
+
+
+    // =========================
+    // ФОРМА ЗАПИСИ
     // =========================
 
     const form = document.querySelector(".booking-form");
@@ -95,10 +135,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Направление: " + program;
 
             window.open(
-                "https://wa.me/" + whatsappNumber + "?text=" + message,
+                "https://wa.me/" +
+                whatsappNumber +
+                "?text=" +
+                message,
                 "_blank"
             );
+
         });
+
     }
 
 });
