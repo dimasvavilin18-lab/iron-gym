@@ -1780,3 +1780,37 @@ img {
     }
 
 }
+/* ========================================
+   HEADER — TABLET FIX
+======================================== */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .header__inner {
+        gap: 20px;
+    }
+
+    .logo {
+        flex-shrink: 0;
+    }
+
+    .nav {
+        flex: 1;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .nav a {
+        white-space: nowrap;
+        font-size: 10px;
+    }
+
+    .header__button {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+}
+   .header {
+    position: relative;
+}
