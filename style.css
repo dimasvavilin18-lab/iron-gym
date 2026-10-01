@@ -962,3 +962,58 @@ img {
     }
 
 }
+/* ========================================
+   MOBILE MENU — OPEN
+======================================== */
+
+@media (max-width: 600px) {
+
+    .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+
+        background: rgba(10, 10, 10, 0.97);
+        border-bottom: 1px solid #292929;
+
+        max-height: 0;
+        overflow: hidden;
+
+        transition: max-height 0.4s ease;
+    }
+
+    .nav a {
+        width: 100%;
+        padding: 18px 20px;
+
+        border-bottom: 1px solid #222222;
+
+        font-size: 13px;
+    }
+
+    .nav--open {
+        max-height: 400px;
+    }
+
+
+    /* Бургер превращается в крестик */
+
+    .menu-button--active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-button--active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-button--active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+}
