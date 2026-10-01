@@ -19,9 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const targetId = link.getAttribute("href");
 
-            if (targetId === "#") {
-                return;
-            }
+            if (targetId === "#") return;
 
             const target = document.querySelector(targetId);
 
@@ -74,11 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const phone = form.querySelector('[name="phone"]').value;
             const program = form.querySelector('[name="program"]').value;
 
-
-            // Номер WhatsApp клуба
-            // ПОТОМ заменим его на настоящий номер
             const whatsappNumber = "77000000000";
-
 
             const message =
                 `Здравствуйте! Хочу записаться в IRON GYM.%0A%0A` +
@@ -86,43 +80,79 @@ document.addEventListener("DOMContentLoaded", () => {
                 `Телефон: ${phone}%0A` +
                 `Направление: ${program}`;
 
-
             const whatsappLink =
                 `https://wa.me/${whatsappNumber}?text=${message}`;
-
 
             window.open(whatsappLink, "_blank");
 
         });
 
     }
-// ========================================
-// MOBILE MENU
-// ========================================
-
-const menuButton = document.querySelector(".menu-button");
-const nav = document.querySelector(".nav");
-
-if (menuButton && nav) {
-
-    menuButton.addEventListener("click", () => {
-
-        nav.classList.toggle("nav--open");
-        menuButton.classList.toggle("menu-button--active");
-
-    });
 
 
-    nav.querySelectorAll("a").forEach(link => {
+    // ========================================
+    // MOBILE MENU
+    // ========================================
 
-        link.addEventListener("click", () => {
+    const menuButton = document.querySelector(".menu-button");
+    const nav = document.querySelector(".nav");
 
-            nav.classList.remove("nav--open");
-            menuButton.classList.remove("menu-button--active");
+    if (menuButton && nav) {
+
+        menuButton.addEventListener("click", () => {
+
+            nav.classList.toggle("nav--open");
+            menuButton.classList.toggle("menu-button--active");
 
         });
 
+
+        nav.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                nav.classList.remove("nav--open");
+                menuButton.classList.remove("menu-button--active");
+
+            });
+
+        });
+
+    }
+
+
+    // ========================================
+    // АНИМАЦИЯ ПРИ ПОЯВЛЕНИИ
+    // ========================================
+
+    const animatedElements = document.querySelectorAll(
+        ".section, .program-card, .trainer-card, .price-card"
+    );
+
+    const observer = new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("is-visible");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+
+    animatedElements.forEach(element => {
+        observer.observe(element);
     });
 
-}
 });
