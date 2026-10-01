@@ -1814,3 +1814,134 @@ img {
    .header {
     position: relative;
 }
+/* ========================================
+   FINAL MOBILE FIX
+======================================== */
+
+@media (max-width: 600px) {
+
+    /* ШАПКА */
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 12px 0;
+    }
+
+    .header__inner {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 8px;
+    }
+
+    .logo {
+        font-size: 18px;
+        white-space: nowrap;
+    }
+
+    .menu-button {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+    }
+
+
+    /* МОБИЛЬНОЕ МЕНЮ */
+
+    .nav {
+        top: 100%;
+        left: 0;
+        width: 100%;
+
+        max-height: 0;
+        overflow: hidden;
+
+        z-index: 999;
+    }
+
+    .nav--open {
+        max-height: 360px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 100svh;
+        height: auto;
+    }
+
+    .hero__content {
+        min-height: 100svh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        padding-top: 100px;
+        padding-bottom: 70px;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 16vw, 76px);
+        line-height: 0.9;
+        letter-spacing: -2px;
+    }
+
+
+    /* КНОПКИ */
+
+    .button {
+        min-height: 52px;
+        padding: 15px 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 11px;
+        text-align: center;
+    }
+
+
+    /* СЕКЦИИ */
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section h2 {
+        font-size: clamp(34px, 10vw, 52px);
+    }
+
+
+    /* КАРТОЧКИ */
+
+    .program-card,
+    .trainer-card,
+    .price-card,
+    .review-card,
+    .contact-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    /* FOOTER */
+
+    .footer__top {
+        padding-top: 50px;
+        padding-bottom: 40px;
+    }
+
+}
