@@ -310,24 +310,74 @@
 </section>
         
         <!-- CTA -->
-        <section id="booking" class="section booking">
+<!-- BOOKING -->
+<section id="booking" class="section booking">
 
-            <div class="container booking__inner">
+    <div class="container booking__inner">
 
-                <p class="section__label">03 — НАЧНИ СЕЙЧАС</p>
+        <p class="section__label">05 — ЗАПИСЬ</p>
 
-                <h2>
-                    ГОТОВ<br>
-                    <span>ТРЕНИРОВАТЬСЯ?</span>
-                </h2>
+        <h2>
+            ГОТОВ<br>
+            <span>ТРЕНИРОВАТЬСЯ?</span>
+        </h2>
 
-                <a href="#contacts" class="button button--primary">
-                    Записаться на тренировку
-                </a>
+        <p class="booking__text">
+            Оставь заявку — мы свяжемся с тобой
+            и подберём подходящую тренировку.
+        </p>
+
+        <form class="booking-form">
+
+            <div class="booking-form__row">
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Твоё имя"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Номер телефона"
+                    required
+                >
 
             </div>
 
-        </section>
+            <select name="program" required>
+                <option value="" disabled selected>
+                    Выбери направление
+                </option>
+
+                <option value="Силовые">
+                    Силовые тренировки
+                </option>
+
+                <option value="Кроссфит">
+                    Кроссфит
+                </option>
+
+                <option value="Кардио">
+                    Кардио
+                </option>
+
+                <option value="Персональные">
+                    Персональная тренировка
+                </option>
+            </select>
+
+            <button type="submit" class="button button--primary">
+                Отправить заявку
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
 
     </main>
 
