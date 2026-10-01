@@ -1017,3 +1017,27 @@ img {
     }
 
 }
+/* ========================================
+   SCROLL ANIMATIONS
+======================================== */
+
+.section,
+.program-card,
+.trainer-card,
+.price-card {
+    animation: fadeUp 0.8s ease both;
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
