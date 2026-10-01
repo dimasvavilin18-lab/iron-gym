@@ -1152,3 +1152,133 @@ img {
     }
 
 }
+/* ========================================
+   CONTACTS
+======================================== */
+
+.contacts {
+    background: var(--bg-light);
+}
+
+.contacts__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 70px;
+}
+
+.contact-card {
+    padding: 35px 30px;
+    min-height: 230px;
+
+    background: #0a0a0a;
+    border: 1px solid var(--border);
+
+    transition: 0.4s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+}
+
+.contact-card__label {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.contact-card h3 {
+    margin-top: 25px;
+
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 900;
+}
+
+.contact-card p {
+    margin-top: 20px;
+
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* BOTTOM */
+
+.contacts__bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    margin-top: 20px;
+}
+
+.contacts__bottom > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 25px 30px;
+
+    background: #0a0a0a;
+    border: 1px solid var(--border);
+}
+
+.contacts__bottom span {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.contacts__bottom a {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.contacts__bottom a:hover {
+    color: var(--accent);
+}
+
+
+/* ========================================
+   CONTACTS — RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .contacts__grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .contacts__grid {
+        margin-top: 50px;
+    }
+
+    .contact-card {
+        min-height: auto;
+        padding: 30px 25px;
+    }
+
+    .contacts__bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .contacts__bottom > div {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+}
