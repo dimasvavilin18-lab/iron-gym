@@ -837,3 +837,80 @@ img {
     }
 
 }
+/* ========================================
+   BOOKING FORM
+======================================== */
+
+.booking__text {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.booking-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.booking-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.booking-form input,
+.booking-form select {
+    width: 100%;
+    height: 58px;
+    padding: 0 18px;
+    margin-bottom: 15px;
+
+    border: 1px solid #292929;
+    outline: none;
+
+    background: #111111;
+    color: #ffffff;
+
+    font-size: 14px;
+
+    transition: 0.3s ease;
+}
+
+.booking-form select {
+    appearance: none;
+    cursor: pointer;
+}
+
+.booking-form input::placeholder {
+    color: #666666;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+    border-color: var(--accent);
+    background: #151515;
+}
+
+.booking-form .button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .booking-form__row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .booking__text {
+        font-size: 15px;
+    }
+
+}
