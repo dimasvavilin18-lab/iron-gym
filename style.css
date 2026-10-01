@@ -1692,3 +1692,91 @@ img {
 
 
     /* FOOTER
+/* ========================================
+   RESPONSIVE — LARGE SCREENS
+======================================== */
+
+@media (min-width: 1440px) {
+
+    .container {
+        max-width: 1400px;
+    }
+
+    /* HEADER */
+
+    .header {
+        padding: 28px 0;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .nav {
+        gap: 35px;
+    }
+
+
+    /* HERO */
+
+    .hero__content {
+        max-width: 1400px;
+    }
+
+    .hero h1 {
+        font-size: 150px;
+    }
+
+    .hero__text {
+        max-width: 650px;
+        font-size: 18px;
+    }
+
+
+    /* SECTIONS */
+
+    .section {
+        padding: 130px 0;
+    }
+
+    .section h2 {
+        font-size: 90px;
+    }
+
+
+    /* CARDS */
+
+    .program-card {
+        padding: 40px;
+        min-height: 260px;
+    }
+
+    .trainer-card__image {
+        height: 500px;
+    }
+
+    .price-card {
+        padding: 50px 40px;
+    }
+
+    .review-card {
+        padding: 40px;
+    }
+
+
+    /* CONTACTS */
+
+    .contact-card {
+        padding: 45px;
+        min-height: 270px;
+    }
+
+
+    /* FOOTER */
+
+    .footer__top {
+        padding-top: 100px;
+        padding-bottom: 90px;
+    }
+
+}
