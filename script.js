@@ -1,70 +1,84 @@
-// ========================================
-// IRON GYM — JAVASCRIPT
-// ========================================
+document.addEventListener("DOMContentLoaded", function () {
 
-document.addEventListener("DOMContentLoaded", () => {
+    // =========================
+    // МОБИЛЬНОЕ МЕНЮ
+    // =========================
 
-    console.log("IRON GYM loaded");
+    const menuButton = document.querySelector(".menu-button");
+    const nav = document.querySelector(".nav");
+
+    if (menuButton && nav) {
+
+        menuButton.addEventListener("click", function () {
+            nav.classList.toggle("nav--open");
+            menuButton.classList.toggle("menu-button--active");
+        });
+
+        const navLinks = nav.querySelectorAll("a");
+
+        navLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
+                nav.classList.remove("nav--open");
+                menuButton.classList.remove("menu-button--active");
+            });
+        });
+    }
 
 
-    // ========================================
+    // =========================
     // ПЛАВНАЯ ПРОКРУТКА
-    // ========================================
+    // =========================
 
-    const links = document.querySelectorAll('a[href^="#"]');
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
 
-    links.forEach(link => {
+        link.addEventListener("click", function (event) {
 
-        link.addEventListener("click", event => {
+            const id = link.getAttribute("href");
 
-            const targetId = link.getAttribute("href");
+            if (id === "#") return;
 
-            if (targetId === "#") return;
-
-            const target = document.querySelector(targetId);
+            const target = document.querySelector(id);
 
             if (target) {
-
                 event.preventDefault();
 
                 target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
+                    behavior: "smooth"
                 });
-
             }
-
         });
 
     });
 
 
-    // ========================================
+    // =========================
     // HEADER ПРИ ПРОКРУТКЕ
-    // ========================================
+    // =========================
 
     const header = document.querySelector(".header");
 
-    window.addEventListener("scroll", () => {
+    if (header) {
+        window.addEventListener("scroll", function () {
 
-        if (window.scrollY > 50) {
-            header.classList.add("header--scrolled");
-        } else {
-            header.classList.remove("header--scrolled");
-        }
+            if (window.scrollY > 50) {
+                header.classList.add("header--scrolled");
+            } else {
+                header.classList.remove("header--scrolled");
+            }
 
-    });
+        });
+    }
 
 
-    // ========================================
-    // ФОРМА ЗАПИСИ
-    // ========================================
+    // =========================
+    // ФОРМА
+    // =========================
 
     const form = document.querySelector(".booking-form");
 
     if (form) {
 
-        form.addEventListener("submit", event => {
+        form.addEventListener("submit", function (event) {
 
             event.preventDefault();
 
@@ -75,84 +89,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const whatsappNumber = "77000000000";
 
             const message =
-                `Здравствуйте! Хочу записаться в IRON GYM.%0A%0A` +
-                `Имя: ${name}%0A` +
-                `Телефон: ${phone}%0A` +
-                `Направление: ${program}`;
+                "Здравствуйте! Хочу записаться в IRON GYM.%0A%0A" +
+                "Имя: " + name + "%0A" +
+                "Телефон: " + phone + "%0A" +
+                "Направление: " + program;
 
-            const whatsappLink =
-                `https://wa.me/${whatsappNumber}?text=${message}`;
-
-            window.open(whatsappLink, "_blank");
-
+            window.open(
+                "https://wa.me/" + whatsappNumber + "?text=" + message,
+                "_blank"
+            );
         });
-
     }
-
-
-    // ========================================
-    // MOBILE MENU
-    // ========================================
-
-    const menuButton = document.querySelector(".menu-button");
-    const nav = document.querySelector(".nav");
-
-    if (menuButton && nav) {
-
-        menuButton.addEventListener("click", () => {
-
-            nav.classList.toggle("nav--open");
-            menuButton.classList.toggle("menu-button--active");
-
-        });
-
-
-        nav.querySelectorAll("a").forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                nav.classList.remove("nav--open");
-                menuButton.classList.remove("menu-button--active");
-
-            });
-
-        });
-
-    }
-
-
-    // ========================================
-    // АНИМАЦИЯ ПРИ ПОЯВЛЕНИИ
-    // ========================================
-
-    const animatedElements = document.querySelectorAll(
-        ".section, .program-card, .trainer-card, .price-card"
-    );
-
-    const observer = new IntersectionObserver(
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("is-visible");
-
-                    observer.unobserve(entry.target);
-
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.15
-        }
-    );
-
-
-    animatedElements.forEach(element => {
-        observer.observe(element);
-    });
 
 });
