@@ -96,5 +96,33 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     }
+// ========================================
+// MOBILE MENU
+// ========================================
 
+const menuButton = document.querySelector(".menu-button");
+const nav = document.querySelector(".nav");
+
+if (menuButton && nav) {
+
+    menuButton.addEventListener("click", () => {
+
+        nav.classList.toggle("nav--open");
+        menuButton.classList.toggle("menu-button--active");
+
+    });
+
+
+    nav.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            nav.classList.remove("nav--open");
+            menuButton.classList.remove("menu-button--active");
+
+        });
+
+    });
+
+}
 });
